@@ -9,6 +9,7 @@ export interface Course {
   published: boolean;
   instructorEmail: string;
   thumbnailUrl: string;
+  instructorId?: number;
   courseOptions?: CourseOption;
   topics: Topic[];
   studyMaterials: StudyMaterial[];

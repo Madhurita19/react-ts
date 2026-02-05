@@ -35,7 +35,7 @@ export default function CourseTable() {
   const handleDelete = async (id: number) => {
     try {
       await deleteCourse(id);
-      setCourses((prevCourses) => prevCourses.filter((course) => course.id !== id)); // 🪄 update locally
+      setCourses((prevCourses) => prevCourses.filter((course) => course.courseId !== id)); // 🪄 update locally
     } catch (err) {
       console.error("Failed to delete course", err);
     }
@@ -61,12 +61,12 @@ export default function CourseTable() {
           <tbody>
             {Array.isArray(courses) && courses.length > 0 ? (
               courses.map((course) => (
-                <tr key={course.id} className="border-t">
-                  <td className="px-4 py-2">{course.id}</td>
+                <tr key={course.courseId} className="border-t">
+                  <td className="px-4 py-2">{course.courseId}</td>
                   <td className="px-4 py-2">{course.title}</td>
                   <td className="px-4 py-2">{course.instructorId ?? "-"}</td>
                   <td className="px-4 py-2">
-                    <Button variant="destructive" onClick={() => handleDelete(course.id)}>
+                    <Button variant="destructive" onClick={() => handleDelete(course.courseId)}>
                       Delete
                     </Button>
                   </td>
