@@ -1,7 +1,8 @@
 import axios from 'axios';
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const instance = axios.create({
-  baseURL: 'http://localhost:9092/auth/admin', // change if needed
+  baseURL: `${API_BASE_URL}/auth/admin`,
 });
 
 instance.interceptors.request.use(
@@ -24,7 +25,7 @@ export const getLoggedInUser = async () => {
       return null;
     }
 
-    const response = await axios.get("http://localhost:9092/auth/users/me", {
+    const response = await axios.get(`${API_BASE_URL}/auth/users/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
