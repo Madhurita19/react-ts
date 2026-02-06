@@ -6,6 +6,7 @@ import {
   RadialBar,
   RadialBarChart,
 } from "recharts"
+import { API_BASE_URL } from "@/api/base";
 
 import {
   Card,
@@ -25,7 +26,7 @@ export function RadialComponent() {
   useEffect(() => {
     const fetchTotalEnrollments = async () => {
       try {
-        const response = await axios.get("http://localhost:9092/auth/instructor/course-sales", {
+        const response = await axios.get("${API_BASE_URL}/auth/instructor/course-sales", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

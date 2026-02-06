@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "./input-otp";
 import { GraduationCapIcon } from "lucide-react";
+import { API_BASE_URL } from "@/api/base";
 
 const ForgotPassword = () => {
     const [step, setStep] = useState(1);
@@ -31,7 +32,7 @@ const ForgotPassword = () => {
     const handleSendOtp = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:9092/auth/forgot-password", { email });
+            const res = await axios.post("${API_BASE_URL}/auth/forgot-password", { email });
             toast.success("OTP sent", {
                 description: res.data,
                 style: {
@@ -58,7 +59,7 @@ const ForgotPassword = () => {
     const handleVerifyOtp = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:9092/auth/verify-otp", { email, otp });
+            const res = await axios.post("${API_BASE_URL}/auth/verify-otp", { email, otp });
             toast.success("OTP verified", {
                 description: res.data,
                 style: {
@@ -83,7 +84,7 @@ const ForgotPassword = () => {
     const handleResetPassword = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:9092/auth/reset-password", {
+            const res = await axios.post("${API_BASE_URL}/auth/reset-password", {
                 email,
                 newPassword,
             });

@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   ChartConfig,
   ChartContainer,
@@ -35,7 +37,7 @@ export function BarComponent() {
       "var(--chart-5)",
     ]
 
-    fetch("http://localhost:9092/auth/instructor/course-sales", {
+    fetch("${API_BASE_URL}/auth/instructor/course-sales", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

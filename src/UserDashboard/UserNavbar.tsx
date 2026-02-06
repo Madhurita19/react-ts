@@ -5,6 +5,8 @@ import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/Sidebar/mode-toggle"
 import { useNavigate } from "react-router-dom"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,7 +39,7 @@ const UserNavbar: React.FC<UserNavbarProps> = ({ userEmail }) => {
       if (!profileImage) {
         try {
           const token = localStorage.getItem("token")
-          const profileResponse = await axios.get("http://localhost:9092/auth/users/profile-picture", {
+          const profileResponse = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
             headers: {
               Authorization: `Bearer ${token}`,
             },

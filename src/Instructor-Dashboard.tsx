@@ -1,5 +1,7 @@
 import { AppSidebar } from "@/components/Sidebar/app-sidebar"
 import { useLocation } from "react-router-dom";
+import { API_BASE_URL } from "@/api/base";
+
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -36,7 +38,7 @@ export default function InstructorDashboard() {
     useEffect(() => {
         const fetchTotalCourses = async () => {
             try {
-                const response = await axios.get("http://localhost:9092/auth/instructor/total-courses", {
+                const response = await axios.get("${API_BASE_URL}/auth/instructor/total-courses", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
@@ -53,7 +55,7 @@ export default function InstructorDashboard() {
     useEffect(() => {
         const fetchRevenue = async () => {
             try {
-                const response = await axios.get("http://localhost:9092/auth/instructor/total-revenue", {
+                const response = await axios.get("${API_BASE_URL}/auth/instructor/total-revenue", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
@@ -70,7 +72,7 @@ export default function InstructorDashboard() {
      useEffect(() => {
         const fetchTotalQuizzes = async () => {
             try {
-                const response = await axios.get("http://localhost:9092/auth/total-quizzes", {
+                const response = await axios.get("${API_BASE_URL}/auth/total-quizzes", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },

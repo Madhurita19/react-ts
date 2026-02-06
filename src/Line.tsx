@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
 import axios from "axios"
 import { LineChart, Line, XAxis, CartesianGrid } from "recharts"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   Card,
   CardContent,
@@ -33,7 +35,7 @@ export default function SalesChart() {
     const fetchData = async () => {
       try {
         const res = await axios.get<Transaction[]>(
-          "http://localhost:9092/auth/instructor/transactions",
+          "${API_BASE_URL}/auth/instructor/transactions",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

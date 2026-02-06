@@ -9,6 +9,8 @@ import { motion } from "framer-motion"
 import UserNavbar from "@/UserDashboard/UserNavbar"
 import axios from "axios"
 import { jwtDecode } from "jwt-decode";
+import { API_BASE_URL } from "@/api/base";
+
 
 interface JwtPayload {
     sub: string;
@@ -100,10 +102,10 @@ export default function QuizDashboard() {
                 }
 
                 const [marksRes, statsRes, historyRes, leaderboardRes] = await Promise.all([
-                    axios.get("http://localhost:9092/auth/total-marks", config),
-                    axios.get("http://localhost:9092/auth/quiz-stats", config),
-                    axios.get("http://localhost:9092/auth/quiz-results", config),
-                    axios.get("http://localhost:9092/auth/leaderboard-data", config),
+                    axios.get("${API_BASE_URL}/auth/total-marks", config),
+                    axios.get("${API_BASE_URL}/auth/quiz-stats", config),
+                    axios.get("${API_BASE_URL}/auth/quiz-results", config),
+                    axios.get("${API_BASE_URL}/auth/leaderboard-data", config),
                 ])
 
                 const currentUserData = leaderboardRes.data.find((user: any) => user.isCurrentUser);
@@ -154,7 +156,7 @@ export default function QuizDashboard() {
                 };
 
                 const res = await axios.get(
-                    "http://localhost:9092/auth/leaderboard-data",
+                    "${API_BASE_URL}/auth/leaderboard-data",
                     config
                 );
 

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Trophy, Zap, Star, Clock, Users, AlertCircleIcon } from "lucide-react"
 import UserNavbar from "@/UserDashboard/UserNavbar"
 import { jwtDecode } from "jwt-decode"
+import { API_BASE_URL } from "@/api/base";
 
 const token = localStorage.getItem("token");
 
@@ -40,7 +41,7 @@ export default function PlayQuiz() {
   const [participantCounts, setParticipantCounts] = useState<Record<number, number>>({});
 
   useEffect(() => {
-    fetch("http://localhost:9092/auth/get-all-quizzes")
+    fetch("${API_BASE_URL}/auth/get-all-quizzes")
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch quizzes");
         return res.json();
@@ -49,7 +50,7 @@ export default function PlayQuiz() {
         setQuizzes(data);
 
         const fetchCounts = data.map((quiz: Quiz) =>
-          fetch(`http://localhost:9092/auth/quiz/${quiz.id}/participants`)
+          fetch(`${API_BASE_URL}/auth/quiz/${quiz.id}/participants`)
             .then(res => res.json())
             .then(result => ({ quizId: quiz.id, count: result.totalParticipants || 0 }))
             .catch(() => ({ quizId: quiz.id, count: 0 }))

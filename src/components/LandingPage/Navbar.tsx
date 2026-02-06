@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { API_BASE_URL } from "@/api/base";
 
 import { Button, buttonVariants } from "../ui/button";
 import { GraduationCapIcon, Menu } from "lucide-react";
@@ -101,7 +102,7 @@ export const Navbar = () => {
                   <Button
                     variant="secondary"
                     onClick={() => {
-                      window.location.href = "http://localhost:9092/oauth2/authorization/google";
+                      window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
                     }}
                   >
                     <FcGoogle className="w-5 h-5" />
@@ -132,7 +133,7 @@ export const Navbar = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                window.location.href = "http://localhost:9092/oauth2/authorization/google";
+                window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
               }}
             >
               <FcGoogle className="w-5 h-5" />

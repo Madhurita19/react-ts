@@ -32,6 +32,8 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Badge } from "../components/ui/badge"
 import { Clock, Star, Trophy, Users, Zap } from "lucide-react"
+import { API_BASE_URL } from "@/api/base";
+
 
 type Quiz = {
     id: number
@@ -68,7 +70,7 @@ export default function ViewQuizzes() {
         const fetchQuizzes = async () => {
             try {
                 const token = localStorage.getItem("token")
-                const res = await axios.get("http://localhost:9092/auth/get-all-instructor-quizzes", {
+                const res = await axios.get("${API_BASE_URL}/auth/get-all-instructor-quizzes", {
                     headers: { Authorization: `Bearer ${token}` },
                 })
 
@@ -94,7 +96,7 @@ export default function ViewQuizzes() {
         await Promise.all(
             quizzes.map(async (quiz) => {
                 try {
-                    const res = await fetch(`http://localhost:9092/auth/quiz/${quiz.id}/participants`, {
+                    const res = await fetch(`${API_BASE_URL}/auth/quiz/${quiz.id}/participants`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -120,7 +122,7 @@ export default function ViewQuizzes() {
 
         try {
             const token = localStorage.getItem("token")
-            await axios.delete(`http://localhost:9092/auth/delete-quizzes/${selectedQuiz.id}`, {
+            await axios.delete(`${API_BASE_URL}/auth/delete-quizzes/${selectedQuiz.id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
 

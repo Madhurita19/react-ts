@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   CheckCircle,
   FileText,
@@ -81,7 +83,7 @@ const CourseContentPage: React.FC = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:9092/auth/users/me", {
+        const res = await axios.get("${API_BASE_URL}/auth/users/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -102,10 +104,10 @@ const CourseContentPage: React.FC = () => {
         setLoading(true)
 
         const [courseRes, progressRes] = await Promise.all([
-          axios.get(`http://localhost:9092/auth/courses/${id}`, {
+          axios.get(`${API_BASE_URL}/auth/courses/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`http://localhost:9092/auth/courses/${id}/progress`, {
+          axios.get(`${API_BASE_URL}/auth/courses/${id}/progress`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ])
@@ -217,7 +219,7 @@ const CourseContentPage: React.FC = () => {
 
     try {
       await axios.put(
-        `http://localhost:9092/auth/courses/${id}/lessons/${selectedLesson.id}/complete`,
+        `${API_BASE_URL}/auth/courses/${id}/lessons/${selectedLesson.id}/complete`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

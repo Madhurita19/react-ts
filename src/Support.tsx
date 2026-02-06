@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { CircleCheck } from "lucide-react";
+import { API_BASE_URL } from "@/api/base";
+
 
 export default function Support() {
   const [formData, setFormData] = useState({
@@ -27,7 +29,7 @@ export default function Support() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:9092/auth/support', {
+      const response = await fetch('${API_BASE_URL}/auth/support', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

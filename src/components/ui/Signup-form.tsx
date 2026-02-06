@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { API_BASE_URL } from "@/api/base";
+
 import {
     Card,
     CardContent,
@@ -35,7 +37,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
             return;
         }
         try {
-            const response = await axios.post("http://localhost:9092/auth/register", {
+            const response = await axios.post("${API_BASE_URL}/auth/register", {
                 username,
                 email,
                 password,

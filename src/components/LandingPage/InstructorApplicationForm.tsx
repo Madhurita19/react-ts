@@ -1,6 +1,7 @@
 "use client"
 
 import { z } from "zod"
+import { API_BASE_URL } from "@/api/base";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
@@ -72,7 +73,7 @@ export default function InstructorApplicationForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:9092/auth/apply-for-instructor", {
+      const response = await fetch("${API_BASE_URL}/auth/apply-for-instructor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

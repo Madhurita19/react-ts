@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
+import { API_BASE_URL } from "@/api/base";
+
 import {
     Form,
     FormControl,
@@ -82,7 +84,7 @@ export function FeedbackForm() {
     async function onSubmit(data: z.infer<typeof FeedbackSchema>) {
         setLoading(true);
         try {
-            const response = await fetch("http://localhost:9092/auth/feedback", {
+            const response = await fetch("${API_BASE_URL}/auth/feedback", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

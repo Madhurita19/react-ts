@@ -12,6 +12,7 @@ import { toast } from "sonner"
 import { Badge } from "../components/ui/badge"
 import QuizResults from "./quiz-results"
 import { jwtDecode } from "jwt-decode";
+import { API_BASE_URL } from "@/api/base";
 
 interface JwtPayload {
     sub?: string;
@@ -79,7 +80,7 @@ export default function TestInterface() {
 
         setLoading(true)
         axios
-            .get(`http://localhost:9092/auth/get-quiz/${id}`)
+            .get(`${API_BASE_URL}/auth/get-quiz/${id}`)
             .then((res) => {
                 const quizData: Quiz = res.data
                 setQuiz(quizData)
@@ -223,7 +224,7 @@ export default function TestInterface() {
         };
 
         try {
-            await axios.post("http://localhost:9092/auth/submit-quiz", submittedData);
+            await axios.post("${API_BASE_URL}/auth/submit-quiz", submittedData);
             setResultData(submittedData);
 
             toast.success("Test Submitted!", {

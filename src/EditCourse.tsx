@@ -8,6 +8,8 @@ import axios from 'axios';
 import { FaEye } from "react-icons/fa6";
 import { Download } from "lucide-react";
 import { toast } from "sonner";
+import { API_BASE_URL } from "@/api/base";
+
 
 interface Video {
     title: string;
@@ -207,7 +209,7 @@ const EditCourse: React.FC<EditCourseProps> = ({ course, onCancel }) => {
             });
 
             const response = await axios.put(
-                `http://localhost:9092/auth/courses/${formData.courseId}/edit`,
+                `${API_BASE_URL}/auth/courses/${formData.courseId}/edit`,
                 formDataToSend,
                 {
                     headers: {
@@ -250,7 +252,7 @@ const EditCourse: React.FC<EditCourseProps> = ({ course, onCancel }) => {
                                     src={
                                         previewThumbnail
                                             ? previewThumbnail
-                                            : `http://localhost:9092/auth/courses/${formData.courseId}/thumbnail`
+                                            : `${API_BASE_URL}/auth/courses/${formData.courseId}/thumbnail`
                                     }
                                     alt="Course Thumbnail"
                                     className="rounded-xl object-contain max-w-full max-h-full"
@@ -497,7 +499,7 @@ const EditCourse: React.FC<EditCourseProps> = ({ course, onCancel }) => {
                                             variant="secondary"
                                             onClick={() => {
                                                 window.open(
-                                                    `http://localhost:9092/auth/courses/${formData.courseId}/materials/${material.fileName}`,
+                                                    `${API_BASE_URL}/auth/courses/${formData.courseId}/materials/${material.fileName}`,
                                                     "_blank"
                                                 );
                                             }}
@@ -506,7 +508,7 @@ const EditCourse: React.FC<EditCourseProps> = ({ course, onCancel }) => {
                                         </Button>
 
                                         <a
-                                            href={`http://localhost:9092/auth/courses/${formData.courseId}/materials/${material.fileName}?download=true`}
+                                            href={`${API_BASE_URL}/auth/courses/${formData.courseId}/materials/${material.fileName}?download=true`}
                                             download
                                         >
                                             <Button type="button"

@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Alert, AlertDescription, AlertTitle } from "./components/ui/alert";
 import { TbCloudOff } from "react-icons/tb";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { API_BASE_URL } from "@/api/base";
 
 interface Video {
     title: string;
@@ -82,7 +83,7 @@ const CourseList: React.FC<CourseListProps> = ({ onEdit }) => {
             const decoded: Instructor = jwtDecode(token);
             setInstructor(decoded);
             axios
-                .get("http://localhost:9092/auth/instructor-courses", {
+                .get("${API_BASE_URL}/auth/instructor-courses", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -108,7 +109,7 @@ const CourseList: React.FC<CourseListProps> = ({ onEdit }) => {
         }
 
         axios
-            .delete(`http://localhost:9092/auth/courses/${courseId}/delete`, {
+            .delete(`${API_BASE_URL}/auth/courses/${courseId}/delete`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -145,7 +146,7 @@ const CourseList: React.FC<CourseListProps> = ({ onEdit }) => {
 
         axios
             .patch(
-                `http://localhost:9092/auth/courses/${courseId}/publish`,
+                `${API_BASE_URL}/auth/courses/${courseId}/publish`,
                 { published: true },
                 {
                     headers: {
@@ -188,7 +189,7 @@ const CourseList: React.FC<CourseListProps> = ({ onEdit }) => {
 
         axios
             .patch(
-                `http://localhost:9092/auth/courses/${courseId}/publish`,
+                `${API_BASE_URL}/auth/courses/${courseId}/publish`,
                 { published: false },
                 {
                     headers: {

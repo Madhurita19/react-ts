@@ -13,6 +13,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import UserNavbar from "./UserNavbar"
+import { API_BASE_URL } from "@/api/base";
+
 
 interface Course {
   courseId: number
@@ -62,7 +64,7 @@ const UserDashboard: React.FC = () => {
     }
 
     axios
-      .get("http://localhost:9092/auth/fetch-all-courses", {
+      .get("${API_BASE_URL}/auth/fetch-all-courses", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

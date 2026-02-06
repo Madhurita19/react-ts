@@ -15,8 +15,10 @@ import UserNavbar from "./UserNavbar"
 import axios from "axios"
 import { jwtDecode } from "jwt-decode"
 import { Toaster, toast } from "react-hot-toast"
+import { API_BASE_URL } from "@/api/base";
 
-const BACKEND_URL = "http://localhost:9092"
+
+const BACKEND_URL = "${API_BASE_URL}"
 
 interface UserData {
   username: string

@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { TimeSelector } from "../components/time-selector"
+import { API_BASE_URL } from "@/api/base";
 
 import type React from "react"
 import { useState } from "react"
@@ -136,7 +137,7 @@ export default function QuizCreator() {
     const token = localStorage.getItem("token")
 
     try {
-      const response = await fetch("http://localhost:9092/auth/create-quiz", {
+      const response = await fetch("${API_BASE_URL}/auth/create-quiz", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

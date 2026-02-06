@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -73,7 +75,7 @@ export function UserAvatarDropdown() {
   const fetchProfileImage = async (token: string) => {
     try {
       setImageLoading(true)
-      const response = await axios.get("http://localhost:9092/auth/users/profile-picture", {
+      const response = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

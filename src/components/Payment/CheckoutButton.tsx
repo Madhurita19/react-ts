@@ -2,6 +2,8 @@ import { useState } from "react";
 import { loadRazorpayScript } from "../../utils/loadRazorpay";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { API_BASE_URL } from "@/api/base";
+
 
 const CheckoutButton = ({ userEmail, courseId, price, className }: {
   userEmail: string;
@@ -29,7 +31,7 @@ const CheckoutButton = ({ userEmail, courseId, price, className }: {
 
         try {
             const orderResponse = await fetch(
-                `http://localhost:9092/auth/payment/create-order?amount=${price}`,
+                `${API_BASE_URL}/auth/payment/create-order?amount=${price}`,
                 { method: "POST" }
             );
             const order = await orderResponse.json();
@@ -69,7 +71,7 @@ const CheckoutButton = ({ userEmail, courseId, price, className }: {
                         courseId,
                     };
 
-                    fetch("http://localhost:9092/auth/payment/complete-payment", {
+                    fetch("${API_BASE_URL}/auth/payment/complete-payment", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

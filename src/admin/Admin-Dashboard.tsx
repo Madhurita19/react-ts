@@ -3,6 +3,8 @@
 import { AppSidebar } from "@/components/AdminSidebar/app-sidebar"
 import { SquareLibrary, User2, ShieldCheck, ActivitySquare, TrendingUp, Calendar, Award } from "lucide-react"
 import { motion } from "framer-motion"
+import { API_BASE_URL } from "@/api/base";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -86,7 +88,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await axios.get("http://localhost:9092/auth/admin/dashboard-counts")
+        const response = await axios.get("${API_BASE_URL}/auth/admin/dashboard-counts")
         const { users, instructors, courses, enabledUsers } = response.data
         setTotalUsers(users)
         setTotalInstructors(instructors)

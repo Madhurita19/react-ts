@@ -13,6 +13,7 @@ import Step4 from "./StudyMaterials";
 import { toast } from "sonner";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { API_BASE_URL } from "@/api/base";
 
 
 const FormSchema = z.object({
@@ -162,7 +163,7 @@ export default function MultiStepCourseForm() {
 
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:9092/auth/create-courses", {
+      const response = await fetch("${API_BASE_URL}/auth/create-courses", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

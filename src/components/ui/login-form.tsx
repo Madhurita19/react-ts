@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { API_BASE_URL } from "@/api/base";
+
 import {
   Card,
   CardContent,
@@ -30,7 +32,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:9092/auth/login", {
+      const response = await axios.post("${API_BASE_URL}/auth/login", {
         email,
         password,
       });
@@ -46,7 +48,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
         // ✅ Fetch profile picture blob
         try {
-          const profileResponse = await axios.get("http://localhost:9092/auth/users/profile-picture", {
+          const profileResponse = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -117,7 +119,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                   variant="outline"
                   className="w-full"
                   onClick={() => {
-                    window.location.href = "http://localhost:9092/oauth2/authorization/google";
+                    window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
                   }}
                 >
 
