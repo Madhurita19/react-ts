@@ -63,21 +63,24 @@ const UserDashboard: React.FC = () => {
       return
     }
 
-    axios
-      .get("${API_BASE_URL}/auth/fetch-all-courses", {
+    axios.get(`${API_BASE_URL}/auth/fetch-all-courses`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        setCourses(response.data)
-        setFilteredCourses(response.data)
-        setLoading(false)
-      })
+  const courseList = Array.isArray(response.data)
+    ? response.data
+    : response.data.content || response.data.data || [];
+
+  setCourses(courseList);
+  setFilteredCourses(courseList);
+  setLoading(false);
+})
       .catch(() => {
         setError("Failed to load courses")
         setLoading(false)
       })
   }, [token])
-
+  
   const navigate = useNavigate()
 
   const handleSearch = () => {
