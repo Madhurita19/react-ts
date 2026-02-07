@@ -38,7 +38,7 @@ export default function InstructorDashboard() {
     useEffect(() => {
         const fetchTotalCourses = async () => {
             try {
-                const response = await axios.get("${API_BASE_URL}/auth/instructor/total-courses", {
+                const response = await axios.get(`${API_BASE_URL}/auth/instructor/total-courses`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
@@ -55,7 +55,7 @@ export default function InstructorDashboard() {
     useEffect(() => {
         const fetchRevenue = async () => {
             try {
-                const response = await axios.get("${API_BASE_URL}/auth/instructor/total-revenue", {
+                const response = await axios.get(`${API_BASE_URL}/auth/instructor/total-revenue`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
@@ -72,7 +72,7 @@ export default function InstructorDashboard() {
      useEffect(() => {
         const fetchTotalQuizzes = async () => {
             try {
-                const response = await axios.get("${API_BASE_URL}/auth/total-quizzes", {
+                const response = await axios.get(`${API_BASE_URL}/auth/total-quizzes`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },

@@ -118,7 +118,7 @@ const EnrolledCourses: React.FC = () => {
     }
 
     axios
-      .get("${API_BASE_URL}/auth/enrolled-courses", {
+      .get(`${API_BASE_URL}/auth/enrolled-courses`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

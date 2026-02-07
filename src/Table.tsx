@@ -20,7 +20,7 @@ export function TableDemo() {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await axios.get("${API_BASE_URL}/auth/instructor/transactions", {
+        const response = await axios.get(`${API_BASE_URL}/auth/instructor/transactions`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

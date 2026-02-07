@@ -137,7 +137,7 @@ const CourseDetailsPage: React.FC = () => {
 
     const fetchEnrolledCourses = async () => {
       try {
-        const res = await axios.get("${API_BASE_URL}/auth/enrolled-courses", {
+        const res = await axios.get(`${API_BASE_URL}/auth/enrolled-courses`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         const enrolledIds = res.data.map((course: { courseId: number }) => course.courseId)

@@ -32,7 +32,7 @@ const ForgotPassword = () => {
     const handleSendOtp = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("${API_BASE_URL}/auth/forgot-password", { email });
+            const res = await axios.post(`${API_BASE_URL}/auth/forgot-password`, { email });
             toast.success("OTP sent", {
                 description: res.data,
                 style: {
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
     const handleVerifyOtp = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("${API_BASE_URL}/auth/verify-otp", { email, otp });
+            const res = await axios.post(`${API_BASE_URL}/auth/verify-otp`, { email, otp });
             toast.success("OTP verified", {
                 description: res.data,
                 style: {
@@ -84,7 +84,7 @@ const ForgotPassword = () => {
     const handleResetPassword = async () => {
         setLoading(true);
         try {
-            const res = await axios.post("${API_BASE_URL}/auth/reset-password", {
+            const res = await axios.post(`${API_BASE_URL}/auth/reset-password`, {
                 email,
                 newPassword,
             });

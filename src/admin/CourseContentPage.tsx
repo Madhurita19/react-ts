@@ -83,7 +83,7 @@ const CourseContentPage: React.FC = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get("${API_BASE_URL}/auth/users/me", {
+        const res = await axios.get(`${API_BASE_URL}/auth/users/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

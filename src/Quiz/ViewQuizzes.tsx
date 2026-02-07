@@ -70,7 +70,7 @@ export default function ViewQuizzes() {
         const fetchQuizzes = async () => {
             try {
                 const token = localStorage.getItem("token")
-                const res = await axios.get("${API_BASE_URL}/auth/get-all-instructor-quizzes", {
+                const res = await axios.get(`${API_BASE_URL}/auth/get-all-instructor-quizzes`, {
                     headers: { Authorization: `Bearer ${token}` },
                 })
 

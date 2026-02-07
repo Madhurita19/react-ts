@@ -102,7 +102,7 @@ export const Navbar = () => {
                   <Button
                     variant="secondary"
                     onClick={() => {
-                      window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
+                      window.location.href = `${API_BASE_URL}/oauth2/authorization/google`;
                     }}
                   >
                     <FcGoogle className="w-5 h-5" />
@@ -133,7 +133,7 @@ export const Navbar = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
+                window.location.href = `${API_BASE_URL}/oauth2/authorization/google`;
               }}
             >
               <FcGoogle className="w-5 h-5" />

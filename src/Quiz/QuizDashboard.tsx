@@ -102,10 +102,10 @@ export default function QuizDashboard() {
                 }
 
                 const [marksRes, statsRes, historyRes, leaderboardRes] = await Promise.all([
-                    axios.get("${API_BASE_URL}/auth/total-marks", config),
-                    axios.get("${API_BASE_URL}/auth/quiz-stats", config),
-                    axios.get("${API_BASE_URL}/auth/quiz-results", config),
-                    axios.get("${API_BASE_URL}/auth/leaderboard-data", config),
+                    axios.get(`${API_BASE_URL}/auth/total-marks`, config),
+                    axios.get(`${API_BASE_URL}/auth/quiz-stats`, config),
+                    axios.get(`${API_BASE_URL}/auth/quiz-results`, config),
+                    axios.get(`${API_BASE_URL}/auth/leaderboard-data`, config),
                 ])
 
                 const currentUserData = leaderboardRes.data.find((user: any) => user.isCurrentUser);
@@ -156,7 +156,7 @@ export default function QuizDashboard() {
                 };
 
                 const res = await axios.get(
-                    "${API_BASE_URL}/auth/leaderboard-data",
+                    `${API_BASE_URL}/auth/leaderboard-data`,
                     config
                 );
 

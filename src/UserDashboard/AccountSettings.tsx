@@ -18,7 +18,7 @@ import { Toaster, toast } from "react-hot-toast"
 import { API_BASE_URL } from "@/api/base";
 
 
-const BACKEND_URL = "${API_BASE_URL}"
+const BACKEND_URL = `${API_BASE_URL}`
 
 interface UserData {
   username: string

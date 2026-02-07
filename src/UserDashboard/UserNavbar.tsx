@@ -39,7 +39,7 @@ const UserNavbar: React.FC<UserNavbarProps> = ({ userEmail }) => {
       if (!profileImage) {
         try {
           const token = localStorage.getItem("token")
-          const profileResponse = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
+          const profileResponse = await axios.get(`${API_BASE_URL}/auth/users/profile-picture`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

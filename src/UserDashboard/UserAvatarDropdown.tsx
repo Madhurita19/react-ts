@@ -75,7 +75,7 @@ export function UserAvatarDropdown() {
   const fetchProfileImage = async (token: string) => {
     try {
       setImageLoading(true)
-      const response = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
+      const response = await axios.get(`${API_BASE_URL}/auth/users/profile-picture`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

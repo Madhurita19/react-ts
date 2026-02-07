@@ -37,7 +37,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
             return;
         }
         try {
-            const response = await axios.post("${API_BASE_URL}/auth/register", {
+            const response = await axios.post(`${API_BASE_URL}/auth/register`, {
                 username,
                 email,
                 password,

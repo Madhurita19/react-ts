@@ -37,7 +37,7 @@ export function BarComponent() {
       "var(--chart-5)",
     ]
 
-    fetch("${API_BASE_URL}/auth/instructor/course-sales", {
+    fetch(`${API_BASE_URL}/auth/instructor/course-sales`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

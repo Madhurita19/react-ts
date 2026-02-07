@@ -84,7 +84,7 @@ export function FeedbackForm() {
     async function onSubmit(data: z.infer<typeof FeedbackSchema>) {
         setLoading(true);
         try {
-            const response = await fetch("${API_BASE_URL}/auth/feedback", {
+            const response = await fetch(`${API_BASE_URL}/auth/feedback`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

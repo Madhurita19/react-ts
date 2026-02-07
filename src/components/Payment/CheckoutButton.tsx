@@ -71,7 +71,7 @@ const CheckoutButton = ({ userEmail, courseId, price, className }: {
                         courseId,
                     };
 
-                    fetch("${API_BASE_URL}/auth/payment/complete-payment", {
+                    fetch(`${API_BASE_URL}/auth/payment/complete-payment`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

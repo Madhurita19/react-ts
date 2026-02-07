@@ -83,7 +83,7 @@ const CourseList: React.FC<CourseListProps> = ({ onEdit }) => {
             const decoded: Instructor = jwtDecode(token);
             setInstructor(decoded);
             axios
-                .get("${API_BASE_URL}/auth/instructor-courses", {
+                .get(`${API_BASE_URL}/auth/instructor-courses`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

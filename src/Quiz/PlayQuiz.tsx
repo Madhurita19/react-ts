@@ -41,7 +41,7 @@ export default function PlayQuiz() {
   const [participantCounts, setParticipantCounts] = useState<Record<number, number>>({});
 
   useEffect(() => {
-    fetch("${API_BASE_URL}/auth/get-all-quizzes")
+    fetch(`${API_BASE_URL}/auth/get-all-quizzes`)
       .then(res => {
         if (!res.ok) throw new Error("Failed to fetch quizzes");
         return res.json();

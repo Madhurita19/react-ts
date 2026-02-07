@@ -224,7 +224,7 @@ export default function TestInterface() {
         };
 
         try {
-            await axios.post("${API_BASE_URL}/auth/submit-quiz", submittedData);
+            await axios.post(`${API_BASE_URL}/auth/submit-quiz`, submittedData);
             setResultData(submittedData);
 
             toast.success("Test Submitted!", {

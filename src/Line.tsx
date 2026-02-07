@@ -35,7 +35,7 @@ export default function SalesChart() {
     const fetchData = async () => {
       try {
         const res = await axios.get<Transaction[]>(
-          "${API_BASE_URL}/auth/instructor/transactions",
+          `${API_BASE_URL}/auth/instructor/transactions`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -137,7 +137,7 @@ export default function QuizCreator() {
     const token = localStorage.getItem("token")
 
     try {
-      const response = await fetch("${API_BASE_URL}/auth/create-quiz", {
+      const response = await fetch(`${API_BASE_URL}/auth/create-quiz`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

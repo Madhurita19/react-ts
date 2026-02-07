@@ -32,7 +32,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
     e.preventDefault();
 
     try {
-      const response = await axios.post("${API_BASE_URL}/auth/login", {
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, {
         email,
         password,
       });
@@ -48,7 +48,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
 
         // ✅ Fetch profile picture blob
         try {
-          const profileResponse = await axios.get("${API_BASE_URL}/auth/users/profile-picture", {
+          const profileResponse = await axios.get(`${API_BASE_URL}/auth/users/profile-picture`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -119,7 +119,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
                   variant="outline"
                   className="w-full"
                   onClick={() => {
-                    window.location.href = "${API_BASE_URL}/oauth2/authorization/google";
+                    window.location.href = `${API_BASE_URL}/oauth2/authorization/google`;
                   }}
                 >
 

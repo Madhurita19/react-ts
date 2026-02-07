@@ -163,7 +163,7 @@ export default function MultiStepCourseForm() {
 
       const token = localStorage.getItem("token");
 
-      const response = await fetch("${API_BASE_URL}/auth/create-courses", {
+      const response = await fetch(`${API_BASE_URL}/auth/create-courses`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

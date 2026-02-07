@@ -73,7 +73,7 @@ export default function InstructorApplicationForm() {
     }
 
     try {
-      const response = await fetch("${API_BASE_URL}/auth/apply-for-instructor", {
+      const response = await fetch(`${API_BASE_URL}/auth/apply-for-instructor`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

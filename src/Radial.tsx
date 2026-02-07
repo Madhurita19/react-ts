@@ -26,7 +26,7 @@ export function RadialComponent() {
   useEffect(() => {
     const fetchTotalEnrollments = async () => {
       try {
-        const response = await axios.get("${API_BASE_URL}/auth/instructor/course-sales", {
+        const response = await axios.get(`${API_BASE_URL}/auth/instructor/course-sales`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
